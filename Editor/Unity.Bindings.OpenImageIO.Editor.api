@@ -22,6 +22,7 @@ namespace UnityEditor.Bindings.OpenImageIO
             public System.UInt32 attributesCount;
             public System.UInt32 channelsCount;
             public System.IntPtr data;
+            public System.UInt32 fullPrecision;
             public System.UInt32 height;
             public System.UInt32 width;
         }

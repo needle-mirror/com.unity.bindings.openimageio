@@ -80,6 +80,11 @@ namespace UnityEditor.Bindings.OpenImageIO
             public uint channelsCount;
 
             /// <summary>
+            /// Channel precision (full being fp32, otherwise fp16)
+            /// </summary>
+            public uint fullPrecision;
+
+            /// <summary>
             /// Image width
             /// </summary>
             public uint width;
@@ -149,6 +154,7 @@ namespace UnityEditor.Bindings.OpenImageIO
             int numChannels = (int)subImgHeader.channelsCount;
             int w = (int)subImgHeader.width;
             int h = (int)subImgHeader.height;
+            bool fp32 = subImgHeader.fullPrecision != 0;
 
             float[] rawData = new float[w * h * numChannels];
             unsafe
@@ -156,7 +162,9 @@ namespace UnityEditor.Bindings.OpenImageIO
                 var sourcePtr = (ushort*)subImgHeader.data;
                 for (int i = 0; i < 0 + w * h * numChannels; ++i)
                 {
-                    rawData[i] = Mathf.HalfToFloat(*sourcePtr++);
+                    rawData[i] = fp32
+                        ? *sourcePtr++
+                        : Mathf.HalfToFloat(*sourcePtr++);
                 }
             }
 
@@ -193,7 +201,7 @@ namespace UnityEditor.Bindings.OpenImageIO
                 }
             }
 
-            var tex = new Texture2D(w, h, TextureFormat.RGBAHalf, false);
+            var tex = new Texture2D(w, h, fp32 ? TextureFormat.RGBAFloat : TextureFormat.RGBAHalf, false);
             tex.SetPixels(pixels);
             return tex;
         }
