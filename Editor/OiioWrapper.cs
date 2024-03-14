@@ -11,11 +11,9 @@ namespace UnityEditor.Bindings.OpenImageIO
     public class OiioWrapper
     {
         #if UNITY_EDITOR_WIN
-        const string LibraryPath = "Packages/com.unity.bindings.openimageio/Plugins/Windows/OIIOBindings.dll";
-        #elif UNITY_EDITOR_OSX
-        const string LibraryPath = "Packages/com.unity.bindings.openimageio/Plugins/macOS/libOIIOBindings.dylib";
-        #elif UNITY_EDITOR_LINUX
-        const string LibraryPath = "Packages/com.unity.bindings.openimageio/Plugins/Linux/libOIIOBindings.so";
+        const string LibraryPath = "OIIOBindings";
+        #elif UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
+        const string LibraryPath = "libOIIOBindings";
         #else
         const string LibraryPath = "Undefined";
         #endif

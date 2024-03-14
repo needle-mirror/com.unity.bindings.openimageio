@@ -1,23 +1,23 @@
 {
   "name": "com.unity.bindings.openimageio",
   "displayName": "OpenImageIO Bindings",
-  "version": "1.0.0-pre.1",
+  "version": "1.0.0",
   "unity": "2023.1",
-  "type": "tool",
+  "type": "library",
   "hideInEditor": true,
   "description": "This package contains C# bindings for the OpenImageIO library. OpenImageIO is a image manipulation library that provides an unified way to work with multiple image formats.",
   "dependencies": {
     "com.unity.collections": "1.0.0"
   },
   "_upm": {
-    "changelog": "### Added\n- Created the OpenImageIO Bindings package.\n- Added ReadImage() and WriteImage() functions.\n- Added support for writing PNG/JPEG images via OpenImageIO."
+    "changelog": "### Added\n- Added support for Windows Arm64."
   },
   "upmCi": {
-    "footprint": "c0741a9b9dbef4348a35223b4afc47a397735a32"
+    "footprint": "d5e353ca618f15c7d61bfcff9d70608ab64eb9d2"
   },
   "repository": {
     "url": "https://github.cds.internal.unity3d.com/unity/com.unity.recorder.git",
     "type": "git",
-    "revision": "80db68327e1e43d479b8b1a9dde6fc3c0c46e7c3"
+    "revision": "ea9b18e6c1a9d42406064f8e726352d7c26b656d"
   }
 }
